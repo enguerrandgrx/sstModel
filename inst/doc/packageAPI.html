@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Introduction</title>
+
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
+  }
+};
+</script>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: #990073
+   }
+
+   pre .number {
+     color: #099;
+   }
+
+   pre .comment {
+     color: #998;
+     font-style: italic
+   }
+
+   pre .keyword {
+     color: #900;
+     font-weight: bold
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: #d14;
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+pre {
+  overflow-x: auto;
+}
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<h1>Introduction</h1>
+
+<p>The ultimate goal of the sstModel package is to build an instance of the Swiss Solvency Test (SST) model in order to be able to simulate from it and compute solvency figures. At the core of the sstModel package lies the idea that a binding occurs between  <strong>risk-factor spaces</strong> (market risks, life risks, health risks, non-life risks, scenario risks, participation risks) and a <strong>portfolio</strong> characterizing the balance sheet. </p>
+
+<p>In this document, we will follow step-by-step the process of defining a specific instance of sstModel and then computing it to get final solvency figures.
+Please consider that this document is only intended to present the API, meaning that we do not assume that it provides a comprehension on the model assumptions nor that the data values (chosen for the sake of API presentation) are representative of a real-world example.</p>
+
+<h1>1. Defining risk-factor spaces</h1>
+
+<p>As an example, we consider a portfolio subject to all types of risks implemented in the R-package:</p>
+
+<ul>
+<li>market risks</li>
+<li>life risks</li>
+<li>health risks</li>
+<li>non-life risks</li>
+<li>participation risks</li>
+<li>scenario risks</li>
+</ul>
+
+<h2>Defining a marketRisk</h2>
+
+<p>In order to define a marketRisk, we first need to define a vocabulary of base market risk factors. In this special example we will consider that we hold a portfolio reporting in Swiss currency an that the market is composed of two currencies:</p>
+
+<ul>
+<li>Swiss market (CHF)</li>
+<li>European market (EUR)</li>
+</ul>
+
+<p>For the Swiss market we will consider the following base risk factors:</p>
+
+<ul>
+<li><code>MSCI_CHF</code> (equity in CHF)</li>
+<li><code>Rued_Blass</code> (commercial real estate in CHF)</li>
+<li><code>SNB_IND</code> (spread in CHF)</li>
+<li><code>2Y_CHF</code>, <code>10Y_CHF</code>, <code>30Y_CHF</code> the interests rate in CHF for 2, 10 and 30 years.</li>
+</ul>
+
+<p>For the European market we will consider:</p>
+
+<ul>
+<li><code>MSCI_EUR</code> (equity in EUR)</li>
+<li><code>AA_EUR_Spread</code> (spread in EUR)</li>
+<li><code>2Y_EUR</code>, <code>10Y_EUR</code>, <code>30Y_EUR</code> the interests rate in EUR for 2, 10 and 30 years.</li>
+</ul>
+
+<p>Additionally, since we have two markets, we should also consider the FX risk factor:</p>
+
+<ul>
+<li><code>EURCHF</code>.</li>
+</ul>
+
+<p>We define this vocabulary as follows:</p>
+
+<pre><code class="r"># define the market vocabulary
+name &lt;- c(&quot;EURCHF&quot;,                           # currency risk 
+          &quot;MSCI_CHF&quot;, &quot;MSCI_EUR&quot;,             # equity risks
+          &quot;2Y_CHF&quot;, &quot;10Y_CHF&quot;, &quot;30Y_CHF&quot;,     # interest rate risks in CHF
+          &quot;2Y_EUR&quot;, &quot;10Y_EUR&quot;, &quot;30Y_EUR&quot;,     # interest rate risks in EUR
+          &quot;SNB_IND&quot;, &quot;AA_EUR_Spread&quot;,         # the spread risks
+          &quot;Rued_Blass&quot;)                       # real estate
+</code></pre>
+
+<p>As the distribution of base market risk factor changes is assumed to be multivariate normal according to the SST standard model, we need to provide information on the covariance matrix of these risk factor changes.</p>
+
+<pre><code class="r"># define the correlation matrix of base market risk factor changes
+corr.mat &lt;- matrix(c(
+  1,0.34161024,0.14725368,0.32600072,0.23891105,0.15829093,
+  0.33053628,0.2120393,0.22398321,-0.238861,-0.1888347,0.00871576, # EURCHF
+  0.34161024,1,0.80390297,0.36492975,0.2296897,0.14789193,
+  0.39493016,0.22665597,0.16277712,-0.4181629,-0.4711875,0.14542951, # MSCI_CHF
+  0.14725368,0.80390297,1,0.25113843,0.2195543,0.21116258,
+  0.50130346,0.30194514,0.23652861,-0.4573374,-0.497173,0.222605, # MSCI_EUR
+  0.32600072,0.36492975,0.25113843,1,0.54235597,0.34141452,
+  0.63987172,0.42851556,0.26727693,-0.3639534,-0.2760417,-0.0754334, # 2Y_CHF
+  0.23891105,0.2296897,0.2195543,0.54235597,1,0.85134549,
+  0.53410699,0.79149277,0.69474163,-0.4059395,-0.2140168,-0.0550199, # 10Y_CHF
+  0.15829093,0.14789193,0.21116258,0.34141452,0.85134549,1,
+  0.40118418,0.74668904,0.72843346,-0.1943058,-0.2089049,-0.1116269, # 30Y_CHF
+  0.33053628,0.39493016,0.50130346,0.63987172,0.53410699,0.40118418,
+  1,0.63153892,0.45730512,-0.4195621,-0.3505668,0.08683017, # 2Y_EUR 
+  0.2120393,0.22665597,0.30194514,0.42851556,0.79149277,0.74668904,
+  0.63153892,1,0.90211566,-0.2619321,-0.3121842,-0.0739692, # 10Y_EUR 
+  0.22398321,0.16277712,0.23652861,0.26727693,0.69474163,0.72843346,
+  0.45730512,0.90211566,1,-0.1365209,-0.2398577,-0.0437529, # 20Y_EUR_3 
+  -0.238861,-0.4181629,-0.4573374,-0.3639534,-0.4059395,-0.1943058,
+  -0.4195621,-0.2619321,-0.1365209,1,0.31807203,-0.1240017, # SNB_IND
+  -0.1888347,-0.4711875,-0.497173,-0.2760417,-0.2140168,-0.2089049,
+  -0.3505668,-0.3121842,-0.2398577,0.31807203,1,-0.187089, # AA_EUR_Spread
+  0.00871576,0.14542951,0.222605,-0.0754334,-0.0550199,-0.1116269,
+  0.08683017,-0.0739692,-0.0437529,-0.1240017,-0.187089,1 # Rued_Blass
+), byrow = T, ncol = length(name))
+
+# name the columns and rows of this correlation matrix
+colnames(corr.mat) &lt;- name
+rownames(corr.mat) &lt;- name
+
+# define the associated volatilities
+volatility &lt;- c(0.002473,                      # fx EURCHF
+                0.1281, 0.1674,                # stocks (CHF, EUR)
+                0.0048876, 0.004994, 0.005203, # rate CHF
+                0.006247, 0.006575, 0.007183,  # rate EUR 
+                0.002979, 0.003496,            # spreads
+                0.0739)                        # commercial real estate
+
+# compute thr covariance matrix
+cov.mat &lt;- diag(volatility, length(volatility), length(volatility)) %*% corr.mat %*% diag(volatility, length(volatility), length(volatility))
+
+# add the names to the columns and rows
+colnames(cov.mat) &lt;- rownames(cov.mat) &lt;- colnames(corr.mat)
+
+# we additionally should specify the base currency (equal indeed to the reporting currency) in which the covariance matrix is expressed as an attribute of the covariance matrix.
+attr(cov.mat, &quot;base.currency&quot;) &lt;- &quot;CHF&quot;
+</code></pre>
+
+<p>Now we have a vocabulary of base market risk factors, but we still do not have a clear mapping to these quantitiy toward economical (-financial) meaningful metrics subject to risk (that we call <code>riskFactor</code>). The next step thus consists in defining what we call a <strong>mappingTable</strong>, i.e., a coherent mapping of base market risk factors towards economical (-financial) measures (<code>riskFactor</code>). </p>
+
+<p>For that, we have the following constructors:</p>
+
+<ul>
+<li><code>currency</code>: FX echange rate risk.</li>
+<li><code>equity</code>: asset (with direct market price) risk.</li>
+<li><code>spread</code>: spread risk (for cashflows).</li>
+<li><code>rate</code>: interest rates risk.</li>
+<li><code>pcRate</code>: principal component of interest rate curves (in case of principal component modelling of rates).</li>
+</ul>
+
+<p>Each of this constructor basically contains three type of information:</p>
+
+<ul>
+<li><code>name</code>: a mapping towards the base market vocabulary.</li>
+<li><code>scale</code>: the scaling that should be applied to the base market risk factor to represent the <code>riskFactor</code> change that we want to construct.</li>
+<li>other information specific to the class of <code>riskFactor</code>. </li>
+</ul>
+
+<p><code>name</code> and <code>scale</code> together imply that a change in the <code>riskFactor</code> that we are defining will be represent by \(scale \times name\) (extended to linear combinations in case of principal component modeling of rates). Beware that this representation is strong (probabilistically speaking, there is equality almost surely and not only in distribution).</p>
+
+<p>In our specific case we define:</p>
+
+<pre><code class="r"># the exchange rates (here only one), always assuming that exchange rates should map into the reporting (base currency) and be coherent with the covariance matrix of base market risk factors.
+list.currency &lt;- list(currency(name = &quot;EURCHF&quot;,
+                               from = &quot;EUR&quot;,
+                               to   = &quot;CHF&quot;))
+
+# the asset risks (with direct market price).
+list.equity &lt;- list(equity(name     = &quot;MSCI_CHF&quot;,
+                           type     = &quot;equity&quot;,
+                           currency = &quot;CHF&quot;),
+                    equity(name     = &quot;MSCI_EUR&quot;,
+                           type     = &quot;equity&quot;,
+                           currency = &quot;EUR&quot;))
+
+# the real estates, here we assume that private real estate is a scaling 
+# of commercial real estate (implying a perfect correlation of riskFactor changes in the Monte-Carlo simulations).
+list.real.estate &lt;- list(equity(name      = &quot;Rued_Blass&quot;,
+                                type      = &quot;commercial real estate&quot;,
+                                currency  = &quot;CHF&quot;),
+                         equity(name      = &quot;Rued_Blass&quot;,
+                                type      = &quot;private real estate&quot;, 
+                                currency  = &quot;CHF&quot;,
+                                scale     = 0.4694626))
+
+# the interests rates (specififying the mapping)
+list.rates &lt;- list(rate(name     = &quot;2Y_CHF&quot;,
+                        currency = &quot;CHF&quot;,
+                        horizon  = &quot;k&quot;),
+                   rate(name     = &quot;10Y_CHF&quot;,
+                        currency = &quot;CHF&quot;,
+                        horizon  = &quot;m&quot;),
+                   rate(name     = &quot;30Y_CHF&quot;,
+                        currency = &quot;CHF&quot;,
+                        horizon  = &quot;l&quot;),
+                   rate(name     = &quot;2Y_EUR&quot;,
+                        currency = &quot;EUR&quot;,
+                        horizon  = &quot;k&quot;),
+                   rate(name     = &quot;10Y_EUR&quot;,
+                        currency = &quot;EUR&quot;,
+                        horizon  = &quot;m&quot;),
+                   rate(name     = &quot;30Y_EUR&quot;,
+                        currency = &quot;EUR&quot;,
+                        horizon  = &quot;l&quot;))
+
+# the spread risks (attached with a rating)
+list.spread &lt;- list(spread(name     = &quot;SNB_IND&quot;,
+                           currency = &quot;CHF&quot;,
+                           rating   = &quot;AAA&quot;),
+                    spread(name     = &quot;AA_EUR_Spread&quot;,
+                           currency = &quot;EUR&quot;,
+                           rating   = &quot;AA&quot;))
+
+# we finally bind all these risks in a mapping table of market risks
+mapping.table &lt;- mappingTable(c(list.currency, list.equity, 
+                                list.real.estate, list.rates, 
+                                list.spread),
+                              list.arg = T)
+</code></pre>
+
+<h2>Initialize the risk-factors</h2>
+
+<p>We need to provide initial values (\(t = 0\)) for rates (<code>rate</code>) and FX rates (<code>currency</code>) as well as time-to-maturity projections.</p>
+
+<pre><code class="r"># initial values list
+initial.values &lt;- list()
+
+# initial fx values
+initial.values$initial.fx &lt;- initialFX(from = c(&quot;EUR&quot;),
+                                       to   = c(&quot;CHF&quot;),
+                                       fx   = c(1.07209)) 
+
+# initial rates values, please note that initial.rates.values are defined in the document but not shown on the PDF version due to its length.
+initial.values$initial.rate &lt;- initialRate(time     = c(c(1:10, 11:20, 21:50),
+                                                        c(1:10, 11:20, 21:50)),
+                                           currency = c(rep(&quot;CHF&quot;, 50),
+                                                        rep(&quot;EUR&quot;, 50)),
+                                           rate     = initial.rates.values)
+
+
+# define the time-to-maturity projections for rates
+mapping.time &lt;- mappingTime(time    = c(1:10, 11:20, 21:50), 
+                            mapping = c(rep(&quot;k&quot;, 10), rep(&quot;m&quot;, 10), rep(&quot;l&quot;, 30)))
+</code></pre>
+
+<p>We are now in shape of constructing a <code>marketRisk</code> instance.</p>
+
+<pre><code class="r"># symmetrize the covariance matrix (to avoid numerical errors)
+cov.mat &lt;- (cov.mat + t(cov.mat)) / 2
+
+# we build the full market risk
+market.risk &lt;-   marketRisk(cov.mat        = cov.mat,
+                            mapping.table  = mapping.table,
+                            initial.values = initial.values,
+                            base.currency  = &quot;CHF&quot;,
+                            mapping.time   = mapping.time)
+</code></pre>
+
+<h2>Defining a lifeRisk</h2>
+
+<p>As before, we first need to define a base vocabulary of life insurance risk factors:</p>
+
+<pre><code class="r"># define the names of life insurance risk-factors.
+life.risk.name &lt;- c(&quot;Sterblichkeit&quot;, &quot;Langlebigkeit&quot;, &quot;Invaliditat&quot;,
+                    &quot;Reaktivierung&quot;,&quot;Kosten&quot;, &quot;Storno&quot;, &quot;Kapitaloption&quot;, 
+                    &quot;KostenBVG&quot;, &quot;StornoBVG&quot;)
+</code></pre>
+
+<p>Next we define the correlation matrix of life risk-factors (due to multivariate normal assumption) and probability values (sensitivites beeing understood as quantiles at one minus these probability values of centered Normal random variables):</p>
+
+<pre><code class="r"># define the life correlation matrix
+life.corr.mat &lt;- matrix(c(1,-0.75,0.25,0,0,0,0,0,0,
+                   -0.75,1,0,0,0,0,0.25,0,0,
+                   0.25,0,1,-0.75,0.25,0,0,0.25,0,
+                   0,0,-0.75,1,0,0,0,0,0,
+                   0,0,0.25,0,1,0.5,0,0.5,0.5,
+                   0,0,0,0,0.5,1,0,0.5,0.5,
+                   0,0.25,0,0,0,0,1,0,-0.5,
+                   0,0,0.25,0,0.5,0.5,0,1,0.5,
+                   0,0,0,0,0.5,0.5,-0.5,0.5,1), ncol = 9, byrow = T)
+
+# add names
+colnames(life.corr.mat) &lt;- life.risk.name
+rownames(life.corr.mat) &lt;- life.risk.name
+
+# choose the life quantiles
+life.quantiles &lt;- rep(0.995, 9)
+
+# define a lifeRisk
+life.risk &lt;- lifeRisk(corr.mat = life.corr.mat, 
+                      quantile = life.quantiles)
+</code></pre>
+
+<h2>Defining a healthRisk</h2>
+
+<p>As before, we first need to define a base vocabulary of health insurance risk factors:</p>
+
+<pre><code class="r"># define the names of health insurance risk-factors.
+health.risk.name &lt;- c(&quot;Langzeit Verpflichtungen&quot;, &quot;Kollektiv Taggeld&quot;)
+</code></pre>
+
+<p>Next we define the correlation matrix of health risk factors (due to multivariate normal assumption) and quantiles values (sensitivites beeing understood as volatilities of centered Normal random variables):</p>
+
+<pre><code class="r"># define the life correlation matrix
+health.corr.mat &lt;- diag(1, 2)
+
+# add names
+colnames(health.corr.mat) &lt;- health.risk.name
+rownames(health.corr.mat) &lt;- health.risk.name
+
+# define a healthRisk
+health.risk &lt;- healthRisk(corr.mat = health.corr.mat)
+</code></pre>
+
+<h2>Define a nonLifeRisk</h2>
+
+<p>There are three types of inputs for nonLifeRisk supported by the package:</p>
+
+<ul>
+<li>simulation inputs</li>
+<li>empirical cumulative distribution function (right continuous step function)</li>
+<li>log-normal assumption on the simulations</li>
+</ul>
+
+<p>In this example we will assume log-normal simulation inputs:</p>
+
+<pre><code class="r"># define a nonLifeRisk
+nonlife.risk &lt;- nonLifeRisk(type     = &quot;log-normal&quot;, 
+                            param    = list(mu = 10, sigma = 2),
+                            currency = &quot;CHF&quot;)
+</code></pre>
+
+<h2>Defining a participationRisk</h2>
+
+<p>In order to define a participation risk we provide the volatility information:</p>
+
+<pre><code class="r"># define a participarion risk
+participation.risk &lt;- participationRisk(volatility = 0.25)
+</code></pre>
+
+<h2>Defining a ScenarioRisk</h2>
+
+<p>In order to define scenario risks, we need to provide information on:</p>
+
+<ul>
+<li>the probability of each scenarios</li>
+<li>the effect on the risk-bearing capital knowing that the scenario has occured. </li>
+</ul>
+
+<p>In our case, we consider two scenarios:</p>
+
+<ul>
+<li><strong>terrorism</strong>: probability \(0.05\) and loss \(-2 \times 10^{6}\).</li>
+<li><strong>financial</strong>: probability \(0.01\) and loss \(-10^{6}\).</li>
+</ul>
+
+<pre><code class="r"># define a scenario risk
+scenario.risk &lt;- scenarioRisk(name        = c(&quot;terrorism&quot;, &quot;financial distress&quot;), 
+                              probability = c(0.05, 0.01), 
+                              currency    = c(&quot;CHF&quot;, &quot;CHF&quot;), 
+                              effect      = c(-2*10^6, -10^6))
+</code></pre>
+
+<h1>2. Creating a portfolio</h1>
+
+<p>Once all risk-factors have been defined, we can proceed to the portfolio definition. We consider, in coherence with the risk factors, four types of items:</p>
+
+<ul>
+<li>market items </li>
+<li>life item</li>
+<li>health item</li>
+<li>participation item</li>
+</ul>
+
+<p>Please note that there is no non-life item, since all sufficient information for non life risk is contained in nonLifeRisk.</p>
+
+<h2>Market items</h2>
+
+<p>Let us incrementally add market items of all existing types:</p>
+
+<h3>Defining cashflow and liabilities</h3>
+
+<pre><code class="r">
+# cashflows items (please note that spread is the initial spread value for this cashflow)
+list.fixed.income &lt;- list( # cashflow in CHF and EUR
+                             cashflow(time = 1L, currency = &quot;CHF&quot;, 
+                                      rating = &quot;AAA&quot;, spread = 0.05, value = 10^6),
+                             cashflow(time = 5L, currency = &quot;CHF&quot;,
+                                      rating = &quot;AAA&quot;, spread = 0.03, value = 10^6),
+                             cashflow(time = 1L, currency = &quot;EUR&quot;, 
+                                      rating = &quot;AA&quot;, spread = -0.05, value = 10^6),
+                             cashflow(time = 5L, currency = &quot;EUR&quot;,
+                                      rating = &quot;AA&quot;, spread = -0.03, value = 10^6),
+
+                          # liabilities in CHF
+                            liability(time = 2L, currency = &quot;CHF&quot;, value = 20*10^6))
+
+</code></pre>
+
+<h3>Defining assets (with directed market price)</h3>
+
+<pre><code class="r"># asset items
+list.assets &lt;- list( # stock assets
+                     asset(type = &quot;equity&quot;, 
+                           currency = &quot;CHF&quot;, value = 30*10^6),
+                     asset(type = &quot;equity&quot;, 
+                           currency = &quot;EUR&quot;, value = 20*10^6),
+
+                     # real estate assets
+                     asset(type = &quot;commercial real estate&quot;, 
+                           currency = &quot;CHF&quot;, value = 10*10^6),
+                     asset(type = &quot;private real estate&quot;, 
+                           currency = &quot;CHF&quot;, value = 5*10^6))
+</code></pre>
+
+<h3>Defining assetForwards and fxForwards</h3>
+
+<pre><code class="r"># assetForwards and fxForwards
+list.forwards &lt;- list( # asset forward
+                     assetForward(type     = &quot;equity&quot;, 
+                                  currency = &quot;CHF&quot;,
+                                  time     = 2L,
+                                  exposure = 2*10^6, 
+                                  price    = 10^6, 
+                                  position =&quot;short&quot;),
+                     # fx forward
+                     fxForward(domestic = &quot;CHF&quot;, foreign = &quot;EUR&quot;,
+                                  time = 1L, nominal = 10^6, rate = 1.06,
+                                    position =&quot;short&quot;))
+
+
+</code></pre>
+
+<h3>Defining a delta remainder term</h3>
+
+<pre><code class="r"># delta remainder
+list.delta &lt;- list(delta(name = c(&quot;MSCI_CHF&quot;, &quot;MSCI_EUR&quot;), 
+                         currency = c(&quot;CHF&quot;,&quot;CHF&quot;), 
+                         sensitivity = c(10^5, -10^5)))
+</code></pre>
+
+<h2>Insurance items</h2>
+
+<p>We then add the insurance items:</p>
+
+<h3>Life insurance item</h3>
+
+<pre><code class="r">life.item &lt;- life(name        = c(&quot;Sterblichkeit&quot;, &quot;Langlebigkeit&quot;, &quot;Invaliditat&quot;,
+                                  &quot;Reaktivierung&quot;, &quot;Kosten&quot;, &quot;Storno&quot;, &quot;Kapitaloption&quot;, 
+                                  &quot;KostenBVG&quot;, &quot;StornoBVG&quot;), 
+                  currency    = rep(&quot;CHF&quot;,9),
+                  sensitivity = rep(-10^5, 9))
+</code></pre>
+
+<h3>Health insurance item</h3>
+
+<pre><code class="r">health.item &lt;- health(name = c(&quot;Langzeit Verpflichtungen&quot;, &quot;Kollektiv Taggeld&quot;), currency = rep(&quot;CHF&quot;,2), sensitivity = rep(10^5, 2))
+</code></pre>
+
+<h2>Participatio item</h2>
+
+<p>We also need to provide the exposure to the participation:</p>
+
+<pre><code class="r">participation.item &lt;- participation(currency = &quot;CHF&quot;, value = 10^6)
+</code></pre>
+
+<h2>Aggregating all items in a portfolio</h2>
+
+<p>Once all market items and insurance items have been defined, we can bind all positions in a portfolio. Note that portfolio-specific values are also added as a parameter named <code>portfolio.parameters</code>.</p>
+
+<pre><code class="r">pf &lt;- portfolio(market.items         = c(list.fixed.income, list.assets, 
+                                         list.forwards, list.delta),
+                base.currency = &quot;CHF&quot;,
+                life.item            = life.item,
+                health.item          = health.item,
+                participation.item   = participation.item,
+                portfolio.parameters = list(mvm = list(mvm.life    = 10^5, 
+                                                       mvm.health  = 10^5,
+                                                       mvm.nonlife = 10^5),
+                                            credit.risk     = 10^5,
+                                            correction.term = 10^4,
+                                            expected.financial.result = 3*10^6, 
+                                            expected.insurance.result = 2*10^6,
+                                            rtkg = 20*10^6, 
+                                            rtkr = 18*10^6))
+</code></pre>
+
+<h2>3. Creating macro-economic scenarios</h2>
+
+<p>In addition, you can also create macro-economic scenarios. Meaning you can valuate the portfolio (market items including participation if any) for specific values taken by the change in risk factors (with non-centered valuation formulas). </p>
+
+<p>Here we define two scenarios:</p>
+
+<pre><code class="r"># define here a macro economic scenario
+
+# values taken by the change in market risk-factors (last in participation).
+eco &lt;- matrix(rnorm(2*13), nrow = 2)
+
+# give names to economic scenarios and risk-factors (including participation)
+colnames(eco) &lt;- c(name, &quot;participation&quot;)
+rownames(eco) &lt;- c(&quot;scenario_1&quot;, &quot;scenario_2&quot;)
+
+# create the maro.economic scenarios
+macro.economic.scenarios &lt;- macroEconomicScenarios(macro.economic.scenario.table = eco)
+</code></pre>
+
+<h1>4. Building an sstModel instance</h1>
+
+<p>Once all type of risks and the portfolio have be defined, we can proceed to the sstModel definition, for that we will need to provide the aggregation copula for the risks:</p>
+
+<ul>
+<li>market (aggregated with participation if any)</li>
+<li>life</li>
+<li>health</li>
+<li>nonlife</li>
+</ul>
+
+<h2>Defining the reordering scheme for risk aggregation</h2>
+
+<p>the R-package supports conditional reordering with stressed Gaussian Copulas (as well as simple reordering with base Gaussian copula):</p>
+
+<pre><code class="r"># providing a list of correlation matrices (the first one called &quot;base&quot; is used for ranks generation and the following for conditional scenarios).
+list.correlation.matrix &lt;- list(base = matrix(c(1,0.15,0.075,0.15,
+                                                  0.15,1,0.25,0.25,
+                                                  0.075,0.25,1,0.15,
+                                                  0.15,0.25,0.15,1), ncol=4, byrow = T),
+                                  scenario1 = matrix(c(1,1,1,0.35,
+                                                       1,1,1,0.35,
+                                                       1,1,1,0.35,
+                                                       0.35,0.35,0.35,1), ncol=4, byrow = T),
+                                  scenario2 = matrix(c(1,0.6,0.5,0.25,
+                                                       0.6,1,0.8,0.35,
+                                                       0.5,0.8,1,0.35,
+                                                       0.25,0.35,0.35,1), ncol=4, byrow = T),
+                                  scenario3 = matrix(c(1,0.25,0.25,0.5,
+                                                       0.25,1,0.25,0.25,
+                                                       0.25,0.25,1,0.25,
+                                                       0.5,0.25,0.25,1), ncol=4, byrow = T))
+
+# we provide names for the correlation matrices
+  list.correlation.matrix &lt;- lapply(list.correlation.matrix, function(corr) {rownames(corr) &lt;- colnames(corr) &lt;- c(&quot;market&quot;, &quot;life&quot;,&quot;health&quot;,&quot;nonlife&quot;); corr})
+
+  # define the region boundaries (i.e. the thresholds t under which we should reorder)
+  region.boundaries &lt;- matrix(c(0.2,0.3,0.3,0.5,
+                                0.5,0.2,0.2,0.8,
+                                0.6,0.8,0.8,0.2), nrow=3, byrow = T)
+
+  # providing names for the regions boundaries and scenarios
+  colnames(region.boundaries) &lt;- c(&quot;market&quot;, &quot;life&quot;,&quot;health&quot;,&quot;nonlife&quot;)
+  rownames(region.boundaries) &lt;- c(&quot;scenario1&quot;, &quot;scenario2&quot;, &quot;scenario3&quot;)
+
+  # scenario and region probabilities
+  scenario.probability  = c(0.01, 0.01, 0.01)
+  region.probability    = c(0.023, 0.034, 0.107)
+</code></pre>
+
+<h2>Creating the model</h2>
+
+<p>Now we are in shape of binding the portfolio with all the types risks by creating a model instance:</p>
+
+<pre><code class="r"># create a model instance
+sst &lt;- sstModel(portfolio                = pf, 
+                market.risk              = market.risk, 
+                life.risk                = life.risk, 
+                health.risk              = health.risk,
+                participation.risk       = participation.risk,
+                scenario.risk            = scenario.risk, 
+                macro.economic.scenarios = macro.economic.scenarios,
+                nhmr                     = 0.06, 
+                reordering.parameters = list(list.correlation.matrix  = list.correlation.matrix,
+                                                 region.boundaries    = region.boundaries,
+                                                 region.probability   = region.probability,
+                                                 scenario.probability = scenario.probability))
+</code></pre>
+
+<h2>Computing the model</h2>
+
+<p>Once an instance of the sstModel has been defined, we compute the model via Monte-Carlo simulations. The following R call agglomerates the core computations of the R-package. Please not that we provide a small number of simulations here (recommended \(10^6\)). Note also that the option <code>nested.market.computation = T</code> is set to have more granularity details on the market simulations:</p>
+
+<pre><code class="r">output &lt;- compute(sst, 
+                  nsim = as.integer(10^4), 
+                  nested.market.computations = T)
+</code></pre>
+
+<h2>Accessing solvency figures and summaries</h2>
+
+<p>The object <code>object</code> output is of class <code>sstOutput</code>. The idea is that  once the computations have been made we can gather from this structure all type of summaries/sst figures that we are interested in. Here is the internal structure of the output:</p>
+
+<pre><code class="r">str(output)
+#&gt; List of 15
+#&gt;  $ simulations              :Classes &#39;data.table&#39; and &#39;data.frame&#39;:  10000 obs. of  15 variables:
+#&gt;   ..$ marketRisk             : num [1:10000] 882874 14300815 -3419543 1873604 -3360203 ...
+#&gt;   ..$ cashflow               : num [1:10000] -2016 56132 9327 58406 2472 ...
+#&gt;   ..$ liability              : num [1:10000] 258878 -108755 -89220 -340098 -23501 ...
+#&gt;   ..$ asset                  : num [1:10000] 773630 14833456 -3705723 2224795 -3326423 ...
+#&gt;   ..$ assetForward           : num [1:10000] -147163 -485679 384918 -75935 -12619 ...
+#&gt;   ..$ fxForward              : num [1:10000] -8624 -539 6042 1444 -9687 ...
+#&gt;   ..$ delta                  : num [1:10000] 8169 6199 -24887 4991 9556 ...
+#&gt;   ..$ lifeRisk               : num [1:10000] 107221 -161291 -109869 253654 196761 ...
+#&gt;   ..$ healthRisk             : num [1:10000] 281392 -72166 -83661 -6925 -207421 ...
+#&gt;   ..$ participation          : num [1:10000] -186478 346633 -318699 -58797 94067 ...
+#&gt;   ..$ marketParticipationRisk: num [1:10000] 9328153 -3930547 -12107616 -10423842 5841706 ...
+#&gt;   ..$ insuranceRisk          : num [1:10000] 388613 -233457 -193530 246730 -10660 ...
+#&gt;   ..$ drbc                   : num [1:10000] 7716766 -6164003 -14301146 -12177112 3831047 ...
+#&gt;   ..$ scenarioRisk           : num [1:10000] 0e+00 0e+00 -2e+06 0e+00 0e+00 0e+00 -2e+06 0e+00 0e+00 0e+00 ...
+#&gt;   ..$ drbc.scenarioRisk      : num [1:10000] 7716766 -6164003 -16301146 -12177112 3831047 ...
+#&gt;   ..- attr(*, &quot;.internal.selfref&quot;)=&lt;externalptr&gt; 
+#&gt;  $ mvm                      : num 3e+05
+#&gt;  $ mvm.list                 :List of 3
+#&gt;   ..$ mvm.life   : num 1e+05
+#&gt;   ..$ mvm.health : num 1e+05
+#&gt;   ..$ mvm.nonlife: num 1e+05
+#&gt;  $ rtkg                     : num 2e+07
+#&gt;  $ rtkr                     : num 1.8e+07
+#&gt;  $ credit.risk              : num 1e+05
+#&gt;  $ nhmr                     : num 0.06
+#&gt;  $ correction.term          : num 10000
+#&gt;  $ expected.financial.result: num 3e+06
+#&gt;  $ expected.insurance.result: num 2e+06
+#&gt;  $ reference.currency       : chr &quot;CHF&quot;
+#&gt;  $ life.standalones         : Named num [1:9] -103470 -103470 -103470 -103470 -103470 ...
+#&gt;   ..- attr(*, &quot;names&quot;)= chr [1:9] &quot;Sterblichkeit&quot; &quot;Langlebigkeit&quot; &quot;Invaliditat&quot; &quot;Reaktivierung&quot; ...
+#&gt;  $ health.standalones       : Named num [1:2] -266521 -266521
+#&gt;   ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;Langzeit Verpflichtungen&quot; &quot;Kollektiv Taggeld&quot;
+#&gt;  $ scenario.risk            :Classes &#39;scenarioRisk&#39;, &#39;risk&#39; and &#39;data.frame&#39;:    2 obs. of  4 variables:
+#&gt;   ..$ name       : chr [1:2] &quot;terrorism&quot; &quot;financial distress&quot;
+#&gt;   ..$ probability: num [1:2] 0.05 0.01
+#&gt;   ..$ currency   : chr [1:2] &quot;CHF&quot; &quot;CHF&quot;
+#&gt;   ..$ effect     : num [1:2] -2e+06 -1e+06
+#&gt;  $ macro.economic.scenarios :Classes &#39;data.table&#39; and &#39;data.frame&#39;:  1 obs. of  2 variables:
+#&gt;   ..$ scenario_1: num 4.94e+10
+#&gt;   ..$ scenario_2: num -2.33e+08
+#&gt;   ..- attr(*, &quot;.internal.selfref&quot;)=&lt;externalptr&gt; 
+#&gt;  - attr(*, &quot;class&quot;)= chr [1:2] &quot;sstOutput&quot; &quot;list&quot;
+</code></pre>
+
+<p>Let us first have a look at the the simulation values:</p>
+
+<pre><code class="r">head(output$simulations)
+#&gt;    marketRisk  cashflow  liability      asset assetForward  fxForward
+#&gt; 1:     882874 -2016.293  258878.10   773629.9   -147162.81 -8623.9707
+#&gt; 2:   14300815 56132.477 -108754.58 14833455.6   -485678.68  -538.7012
+#&gt; 3:   -3419543  9327.034  -89219.51 -3705723.4    384917.86  6042.1542
+#&gt; 4:    1873604 58405.912 -340097.52  2224794.8    -75934.54  1444.2319
+#&gt; 5:   -3360203  2471.569  -23501.37 -3326423.3    -12618.68 -9686.6872
+#&gt; 6:   -4081443 51982.441 -110830.70 -4190220.7    175006.12 -2815.3698
+#&gt;         delta   lifeRisk healthRisk participation marketParticipationRisk
+#&gt; 1:   8168.988  107221.20  281391.95    -186477.66                 9328153
+#&gt; 2:   6199.306 -161290.57  -72166.13     346632.81                -3930547
+#&gt; 3: -24887.406 -109869.20  -83660.92    -318698.95               -12107616
+#&gt; 4:   4990.979  253654.39   -6924.69     -58797.26               -10423842
+#&gt; 5:   9555.730  196760.94 -207420.54      94066.63                 5841706
+#&gt; 6:  -4564.435   50513.47 -126554.54     436829.75                -3040367
+#&gt;    insuranceRisk      drbc scenarioRisk drbc.scenarioRisk
+#&gt; 1:     388613.15   7716766        0e+00           7716766
+#&gt; 2:    -233456.70  -6164003        0e+00          -6164003
+#&gt; 3:    -193530.12 -14301146       -2e+06         -16301146
+#&gt; 4:     246729.70 -12177112        0e+00         -12177112
+#&gt; 5:     -10659.60   3831047        0e+00           3831047
+#&gt; 6:     -76041.07  -5116408        0e+00          -5116408
+</code></pre>
+
+<p>Then we can consult a bunch of solvency figures:</p>
+
+<pre><code class="r"># market value margin
+marketValueMargin(output)
+#&gt; [1] 1318066
+
+# one year risk capital without scenarios
+riskCapital(object = output, with.scenario = F)
+#&gt; [1] 14218415
+
+# one year risk capital with scenarios
+riskCapital(object = output, with.scenario = T)
+#&gt; [1] 14366917
+
+# without scenarios
+targetCapital(output, with.scenario = F)
+#&gt; [1] 15536481
+
+# with scenarios
+targetCapital(output, with.scenario = T)
+#&gt; [1] 15684983
+
+# sst ratio without scenarios
+sstRatio(object = output, with.scenario = F)
+#&gt; [1] 1.313925
+
+# sst ratio with scenarios
+sstRatio(object = output, with.scenario = T)
+#&gt; [1] 1.300344
+</code></pre>
+
+<p>Finally the output can be saved into a formated Excel output using the function <code>write.sstOutput</code>.</p>
+
+</body>
+
+</html>
