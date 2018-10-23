@@ -7,9 +7,7 @@ environment:
  matrix:
  - platform: x64
    R_ARCH: x64
- - R_VERSION: 3.5.0
  - R_VERSION: 3.4.4
- - R_VERSION: 3.4.3
 
 # skip_branch_with_pr: false
 
