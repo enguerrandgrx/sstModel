@@ -9,12 +9,6 @@ environment:
     R_ARCH: x64
     USE_RTOOLS: true
     PKGTYPE: source
-    R_VERSION: devel
-  - platform: x64
-    R_ARCH: x64
-    R_VERSION: release
-  - platform: x64
-    R_ARCH: x64
     R_VERSION: 3.4.3
    
 # skip_branch_with_pr: false
