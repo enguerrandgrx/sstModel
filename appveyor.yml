@@ -8,7 +8,14 @@ environment:
   - platform: x64
     R_ARCH: x64
     USE_RTOOLS: true
-    R_VERSION: 3.3.0
+    PKGTYPE: source
+    R_VERSION: release
+  - platform: x64
+    R_ARCH: x64
+    R_VERSION: 3.4.3
+  - platform: x64
+    R_ARCH: x64
+    R_VERSION: 3.4.2
    
 # skip_branch_with_pr: false
 
